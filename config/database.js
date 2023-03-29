@@ -1,8 +1,11 @@
 const { Sequelize } = require('sequelize');
+const dotenv = require('dotenv');
 
-const sequelize = new Sequelize('resto', 'awom', 'password', {
-	host: '172.31.16.1',
-	dialect: 'mysql',
+dotenv.config();
+
+const sequelize = new Sequelize(process.env.DATABASE, process.env.USERNAME, process.env.PASSWORD, {
+	host: process.env.HOST,
+	dialect: process.env.DIALECT,
 	logging: false
 });
 
